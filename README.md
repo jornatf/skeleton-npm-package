@@ -1,7 +1,7 @@
 # Skeleton NPM Package
 
 ![Latest Version](https://img.shields.io/github/v/tag/jornatf/skeleton-npm-package?label=version&style=flat-square)
-[![Licence](https://img.shields.io/github/license/jornatf/skeleton-npm-package?style=flat-square)](LICENCE.md)
+[![Licence](https://img.shields.io/github/license/jornatf/skeleton-npm-package?label=license&style=flat-square)](LICENCE.md)
 [![GitHub Tests Action Status](https://img.shields.io/github/actions/workflow/status/jornatf/skeleton-npm-package/run-tests.yml?branch=main&label=test&style=flat-square)](https://github.com/jornatf/skeleton-npm-package/actions?query=workflow%3Arun-tests+branch%3Amain)
 [![GitHub Prettier Action Status](https://img.shields.io/github/actions/workflow/status/jornatf/skeleton-npm-package/run-prettier.yml?branch=main&label=code+style&style=flat-square)](https://github.com/jornatf/skeleton-npm-package/actions?query=workflow%3Arun-prettier+branch%3Amain)
 
