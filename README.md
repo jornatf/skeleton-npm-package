@@ -14,21 +14,21 @@
 #### Start in few steps:
 
 1. First, click on the **"Use this template"** button.
-2. Run PHP script for base configurations and installation with command `php ./install.php` and follow instructions.
+2. Run PHP script for base configurations and installation with command `$ php ./install.php` and follow instructions.
 3. After, you are free add your own configurations and develop your package.
 
 #### Publishing:
 
 ```bash
 # To publish your scoped public package to the npm registry, run this:
-npm publish --access public
+$ npm publish --access public
 ```
 
 #### Testing:
 
 ```bash
 # To test your package, run this:
-npm run test
+$ npm run test
 ```
 
 ## Changelog

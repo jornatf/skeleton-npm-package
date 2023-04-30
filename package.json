@@ -1,7 +1,7 @@
 {
-    "name": ":package-slug",
+    "name": "skeleton-npm-package",
     "version": "1.0.0",
-    "description": ":package-description",
+    "description": "An easy used and configured skeleton for NPM Package.",
     "main": "./src/index.js",
     "scripts": {
         "test": "jest",
@@ -10,12 +10,11 @@
     "keywords": [
         "node",
         "package",
-        ":package-name",
-        ":package-slug"
+        "npm"
     ],
     "author": {
-        "name": ":author-name",
-        "email": ":author-email"
+        "name": "Jordan Nataf",
+        "email": "me@jordnat.dev"
     },
     "license": "MIT",
     "devDependencies": {

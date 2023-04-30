@@ -92,6 +92,21 @@ function browse_files() {
     return $files;
 }
 
+function replace_package_json(array $vars) {
+    $data = json_decode(file_get_contents(path('package.json')), true);
+    $data['name'] = $vars[':package-slug'];
+    $data['description'] = $vars[':package-description'];
+    $data['keywords'][] = $vars[':package-slug'];
+    $data['keywords'][] = $vars[':package-name'];
+    $data['author']['name'] = $vars[':author-name'];
+    if ($vars[':author-email']) {
+        $data['author']['email'] = $vars[':author-email'];
+    } else {
+        unset($data['author']['email']);
+    }
+    file_put_contents(path('package.json'), json_encode($data, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE));
+}
+
 /**
  * Configurations.
  */
@@ -106,7 +121,7 @@ $authorName = ask('Author Name');
 
 $authorUsername = ask('Author Username', $default['authorUsername']);
 
-$authorEmail = ask('Author Email');
+$authorEmail = ask('Author Email', $default['authorEmail']);
 
 $packageName = ask('Package Name');
 
@@ -123,6 +138,16 @@ if (! confirm('Do you confirm installation with this values ?', true)) {
 echoln('Configurations processing...');
 echoln(' ');
 
+$vars = [
+    ':package-name' => trim($packageName),
+    ':package-slug' => slugify(trim($packageName)),
+    ':package-description' => trim($packageDescription),
+    ':author-username' => trim($authorUsername),
+    ':author-name' => trim($authorName),
+    ':author-email' => trim($authorEmail),
+    ':licence' => $default['licence'],
+];
+
 foreach ([
     'README.md',
     'LICENCE.md',
@@ -132,16 +157,10 @@ foreach ([
 }
 
 foreach (browse_files() as $file) {
-    replace_vars($file, [
-        ':package-name' => trim($packageName),
-        ':package-slug' => slugify(trim($packageName)),
-        ':package-description' => trim($packageDescription),
-        ':author-username' => trim($authorUsername),
-        ':author-name' => trim($authorName),
-        ':author-email' => trim($authorEmail),
-        ':licence' => $default['licence'],
-    ]);
+    replace_vars($file, $vars);
 }
+
+replace_package_json($vars);
 
 if (confirm('Execute `npm install` and `npm run dev` ?', true)) {
     run('npm install && npm run dev');
