@@ -3,7 +3,7 @@
  */
 
 const sayHello = () => {
-    console.log("Hello!")
+    console.log('Hello!')
 }
 
 module.exports = { sayHello }
