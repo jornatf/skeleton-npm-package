@@ -1,0 +1,25 @@
+{
+    "name": ":package-slug",
+    "version": "1.0.0",
+    "description": ":package-description",
+    "main": "./src/index.js",
+    "scripts": {
+        "test": "jest",
+        "prettier": "prettier --check ."
+    },
+    "keywords": [
+        "node",
+        "package",
+        ":package-name",
+        ":package-slug"
+    ],
+    "author": {
+        "name": ":author-name",
+        "email": ":author-email"
+    },
+    "license": "MIT",
+    "devDependencies": {
+        "jest": "^29.5.0",
+        "prettier": "^2.8.8"
+    }
+}
