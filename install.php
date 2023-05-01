@@ -79,6 +79,10 @@ function remove_file(string $file) {
     }
 }
 
+function repo_url(string $username, string $repoName) {
+    return "https://github.com/$username/$repoName.git";
+}
+
 function browse_files() {
     $files = [];
     foreach (glob(__DIR__ . '/**/*', GLOB_BRACE) as $file) {
@@ -99,11 +103,19 @@ function replace_package_json(array $vars) {
     $data['keywords'][] = $vars[':package-slug'];
     $data['keywords'][] = $vars[':package-name'];
     $data['author']['name'] = $vars[':author-name'];
+
+    if ($vars[':repo-name']) {
+        $data['repository']['url'] = repo_url($vars[':author-username'], $vars[':repo-name']);
+    } else {
+        unset($data['repository']);
+    }
+
     if ($vars[':author-email']) {
         $data['author']['email'] = $vars[':author-email'];
     } else {
         unset($data['author']['email']);
     }
+
     file_put_contents(path('package.json'), json_encode($data, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE));
 }
 
@@ -119,13 +131,15 @@ $default = [
 
 $authorName = ask('Author Name');
 
-$authorUsername = ask('Author Username', $default['authorUsername']);
-
 $authorEmail = ask('Author Email', $default['authorEmail']);
 
 $packageName = ask('Package Name');
 
 $packageDescription = ask('Package description');
+
+$authorUsername = ask('Github Author Username', $default['authorUsername']);
+
+$repoName = ask('Github repository name', $packageName);
 
 if (! confirm('Do you confirm installation with this values ?', true)) {
     exit(1);
@@ -145,6 +159,7 @@ $vars = [
     ':author-username' => trim($authorUsername),
     ':author-name' => trim($authorName),
     ':author-email' => trim($authorEmail),
+    ':repo-name' => trim($repoName),
     ':licence' => $default['licence'],
 ];
 

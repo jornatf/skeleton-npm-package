@@ -3,6 +3,10 @@
     "version": "1.0.0",
     "description": "An easy used and configured skeleton for NPM Package.",
     "main": "./src/index.js",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/jornatf/skeleton-npm-package.git"
+    },
     "scripts": {
         "test": "jest",
         "prettier": "prettier --write ."
