@@ -2,6 +2,16 @@
 
 > See all changes listed below.
 
+## v1.1.0 : adds - 2023-05-01
+
+Updated `package.json`.
+
+> The "repository" key has been added in the json.
+
+Updated `install.php`.
+
+> This key can be configure.
+
 ## v1.0.1 - 2023-04-30
 
 Minor fixes in `README.md`.
