@@ -2,6 +2,14 @@
 
 > See all changes listed below.
 
+## v1.1.1 : minor fixes and updates - 2023-05-03
+
+Workflow for styling code fixed and renamed.
+
+> Commit for styled code has been forgotten.
+
+Some updates in `README.md` and `install.php`.
+
 ## v1.1.0 : adding - 2023-05-01
 
 Updated `package.json`.
