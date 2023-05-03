@@ -12,9 +12,10 @@
         "prettier": "prettier --write ."
     },
     "keywords": [
-        "node",
+        "nodejs",
         "package",
-        "npm"
+        "npm",
+        "javascript"
     ],
     "author": {
         "name": "Jordan Nataf",

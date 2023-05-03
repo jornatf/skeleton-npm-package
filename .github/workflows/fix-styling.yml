@@ -1,4 +1,4 @@
-name: 'Run Prettier'
+name: 'Fix styling'
 
 on: [push]
 
@@ -12,9 +12,17 @@ jobs:
         steps:
             - name: Checkout code
               uses: actions/checkout@v3
+              with:
+                  ref: main
 
             - name: Install dependencies
               run: npm install
 
             - name: Run Prettier
               run: npm run prettier
+
+            - name: Commit fixed styling
+              uses: stefanzweifel/git-auto-commit-action@v4
+              with:
+                  branch: main
+                  commit_message: Fix styling
