@@ -8,8 +8,6 @@
 
 **An easy used and configured skeleton for NPM Package in Javascript and Typescript.**
 
---
-
 #### Table of contents
 
 -   [Installation and usage](#installation-and-usage)
