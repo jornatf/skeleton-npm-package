@@ -1,5 +1,13 @@
 # Changelog
 
+## v2.0.0 : add typescript - 2023-05-04
+
+> I improved overall and updated the workflows.
+
+-- Added typescript
+-- Updated workflow
+-- Minor updates
+
 ## v1.1.1 : minor fixes and updates - 2023-05-03
 
 Workflow for styling code fixed and renamed.
