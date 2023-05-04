@@ -1,14 +1,17 @@
-name: 'Fix styling'
+name: Fix styling code
 
-on: [push]
+on:
+    push:
+        branches: [main]
+    pull_request:
+        branches: [main]
 
 permissions:
     contents: write
 
 jobs:
-    prettier:
+    Prettier:
         runs-on: ubuntu-latest
-
         steps:
             - name: Checkout code
               uses: actions/checkout@v3
@@ -21,8 +24,8 @@ jobs:
             - name: Run Prettier
               run: npm run prettier
 
-            - name: Commit fixed styling
+            - name: Commit fixed styling code
               uses: stefanzweifel/git-auto-commit-action@v4
               with:
                   branch: main
-                  commit_message: Fix styling
+                  commit_message: fix styling
