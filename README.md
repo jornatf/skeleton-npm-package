@@ -63,6 +63,7 @@ LICENCE.md
 README.md
 package.json
 ```
+
 > You can change this in `package.json` with option `files`.
 
 ### Testing:
