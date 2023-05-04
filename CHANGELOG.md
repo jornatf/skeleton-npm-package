@@ -1,7 +1,5 @@
 # Changelog
 
-> See all changes listed below.
-
 ## v1.1.1 : minor fixes and updates - 2023-05-03
 
 Workflow for styling code fixed and renamed.

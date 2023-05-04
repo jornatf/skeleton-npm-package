@@ -1,0 +1,46 @@
+name: Run build and publish
+
+on:
+    push:
+        tags:
+            - 'v*.*.*'
+
+permissions:
+    contents: write
+
+jobs:
+    Tests:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout code
+              uses: actions/checkout@v3
+
+            - name: Install dependencies and run tests
+              run: |
+                  npm install
+                  npm test
+
+    Publish-NPM:
+        needs: Tests
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout code
+              uses: actions/checkout@v3
+
+            - name: Setup node
+              uses: actions/setup-node@v3
+              with:
+                  node-version: 16
+                  registry-url: https://registry.npmjs.org/
+
+            - name: Building
+              uses: FuLagann/tsc-build-push@v1
+              with:
+                  user-name: ':author-username'
+                  user-email: ':author-email'
+                  message: 'update build'
+
+            - name: Run publish
+              run: npm publish
+              env:
+                  NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}

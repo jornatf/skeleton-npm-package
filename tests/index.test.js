@@ -1,9 +1,5 @@
-const index = require('../src/index')
+import { say } from '../src/index'
 
-/**
- * Your test code goes here.
- */
-
-test('can says hello', () => {
-    index.sayHello()
+test('can say hello', () => {
+    expect(say('Hello!')).toEqual('Hello!')
 })
